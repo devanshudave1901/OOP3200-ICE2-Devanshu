@@ -50,7 +50,9 @@ int main()
 
 		// Processing
 		// determine the distance between the two points
-		distance = origin.GetDistanceTo(destination);
+		//distance = origin.GetDistanceTo(destination);
+		distance = origin - destination;
+		//distance = origin - distance;
 
 		// Output 
 		// Show the points and the distance
