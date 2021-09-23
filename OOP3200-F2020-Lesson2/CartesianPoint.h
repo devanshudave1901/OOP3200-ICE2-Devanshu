@@ -16,8 +16,15 @@ public:
 	CartesianPoint(int x = 1, int y = 1);
 	~CartesianPoint();
 
+
+	/*Copy Constructor.*/
+
+	CartesianPoint(const CartesianPoint& point2);
+	CartesianPoint operator+(const CartesianPoint& point2) const;
 	/*Operator overload*/
 	double operator-(const CartesianPoint& point_to) const;
+	bool operator==(const CartesianPoint& other_point) const;
+
 	// --------------------------------------------------------------------------------
 	/* Accessors: Used to query the state of the object
 
