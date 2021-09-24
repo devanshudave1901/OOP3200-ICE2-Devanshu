@@ -54,6 +54,7 @@ int main()
 		distance = origin - destination;
 		//distance = origin - distance;
 
+		
 		cout << " origin is equal to destination?:  " << to_string(origin == destination) << endl;
 		CartesianPoint newPoint = origin + destination;
 

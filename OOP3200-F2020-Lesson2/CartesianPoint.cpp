@@ -3,8 +3,9 @@
 #include <string>
 #include <sstream> 			// stringstream
 #include <cmath>			// sqrt()
+#include <iostream>
 
-	
+
 // Class definition section
 
 // constructor for CartesianPoint
@@ -16,11 +17,14 @@ CartesianPoint::CartesianPoint(const int x, const int y) : m_x(x), m_y(y)
 
 CartesianPoint::~CartesianPoint() = default;
 
+// copy constructor
 CartesianPoint::CartesianPoint(const CartesianPoint& point2)
 {
-	SetPoint(point2.GetX(), point2.GetY()); 
+	SetPoint(point2.GetX(), point2.GetY());
+	std::cout << "I am used" << std::endl;
 }
 
+// + operator
 CartesianPoint CartesianPoint::operator+(const CartesianPoint& point2) const
 {
 	CartesianPoint tempPoint;
@@ -30,6 +34,7 @@ CartesianPoint CartesianPoint::operator+(const CartesianPoint& point2) const
 	return tempPoint;
 }
 
+// - operator defination
 double CartesianPoint::operator-(const CartesianPoint& point_to) const
 {
 	const int xDelta = point_to.GetX()- m_x;
@@ -41,12 +46,14 @@ double CartesianPoint::operator-(const CartesianPoint& point_to) const
 	return sqrt((xDelta * xDelta) + (yDelta * yDelta));
 }
 
+// == operator defination 
 bool CartesianPoint::operator==(const CartesianPoint& other_point) const
 {
 
 	return ((GetX() == other_point.GetX()) && (GetY() == other_point.GetY()));
 }
 
+// = operator defination
 CartesianPoint CartesianPoint::operator=(const CartesianPoint& new_point)
 {
 	SetX((new_point.GetX()));
@@ -56,12 +63,14 @@ CartesianPoint CartesianPoint::operator=(const CartesianPoint& new_point)
 
 }
 
+// ostream defination
 std::ostream& operator<<(std::ostream& out, const CartesianPoint& point)
 {
 	out << point.ToString();
 	return out;
 }
 
+// istream operator defination
 std::istream& operator>>(std::istream& in, CartesianPoint& point)
 {
 	in >> point.m_x;
@@ -73,27 +82,35 @@ std::istream& operator>>(std::istream& in, CartesianPoint& point)
 
 
 
+
+// Setters
 void CartesianPoint::SetPoint(int x, int y)
 {
 	SetX(x);
 	SetY(y);
 }
 
+// SetX defination
 void CartesianPoint::SetX(int x)
 {
 	m_x = x;
 }
 
+// SetY defination
+
 void CartesianPoint::SetY(int y)
 {
 	m_y = y;
 }
+// Getters
+//GetX defination
 
 int CartesianPoint::GetX() const
 {
 	return m_x;
 }
 
+// GETY defination
 int CartesianPoint::GetY() const
 {
 	return m_y;
@@ -121,7 +138,7 @@ double CartesianPoint::GetDistanceTo(const CartesianPoint& point_to) const
 *	Converts the obj to a string.
 *	@return	the obj state as a string
 */
-
+//ToString Method
 std::string CartesianPoint::ToString() const
 {
 	// declare a stringstream object

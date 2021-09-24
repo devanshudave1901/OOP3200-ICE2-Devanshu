@@ -20,6 +20,7 @@ public:
 	/*Copy Constructor.*/
 
 	CartesianPoint(const CartesianPoint& point2);
+	// + operator declared
 	CartesianPoint operator+(const CartesianPoint& point2) const;
 	/*Operator overload*/
 	double operator-(const CartesianPoint& point_to) const;
